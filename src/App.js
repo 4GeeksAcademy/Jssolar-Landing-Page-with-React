@@ -1,25 +1,29 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
-
+import Navbar from './components/Navbar';
+import Carrusel from './components/Carrusel';
+import Main from './components/Main';
+import Footer from './components/Footer';
+import  Card  from './components/Card';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar />
+      <Carrusel/>
+      <Main />
+      <div className='container'>
+        <div className='row'>
+        {Array.from([{userId: 1, id: 1, title: "titulo1", body: `"body1`},{userId: 1,id: 2,title: "titulo2",body: `body2`},
+              {userId: 1, id: 3, title: "titulo3", body: `body3`},]).map((item, index) => 
+              {return <Card key = {item.id} item = {item} />
+        })}
+        </div>
+      </div>
+
+      <Footer/>
     </div>
   );
 }
 
 export default App;
+
